@@ -5,10 +5,10 @@ Vue.component('text-wrapper', {
     template: `
     <div class="book-desc"> 
         <div v-if="!showAll" class="short-text"> 
-            <p> {{ shortText }}  <button v-show="isLongText" @click="toggleShowAll"> Read More... </button> </p>
+            <p> {{ shortText }}  <button v-show="isLongText" @click="toggleShowAll"> Read More </button> </p>
         </div>
         <div v-else class="long-text"> 
-            <p> {{ desc }}  <button @click="toggleShowAll"> Read Less... </button> </p>
+            <p> {{ desc }}  <button @click="toggleShowAll"> Read Less </button> </p>
         </div>
     </div>
     `,
@@ -24,7 +24,8 @@ Vue.component('text-wrapper', {
     },
     computed: {
         shortText() {
-            return this.desc.slice(0,100);
+            if (!this.isLongText) return this.desc; 
+            return this.desc.slice(0,100) + '...';
         },
         isLongText() {
             return (this.desc.length > 100)
