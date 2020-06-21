@@ -29,7 +29,7 @@
     background-color: rgba(0, 0, 0, 0.829);
 }
 
-@media (max-width: 450px) {
+@media (max-width: 470px) {
     .book-preview {
         width: 70%;
     }
