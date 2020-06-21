@@ -29,7 +29,7 @@ Vue.component("book-app", {
         return book.title.toLowerCase().includes(filterBy.byName.toLowerCase());
       });
       filteredBooks = filteredBooks.filter(book => {
-        return (book.listPrice.amount > filterBy.fromPrice && book.listPrice.amount < filterBy.toPrice);
+        return (book.listPrice.amount >= filterBy.fromPrice && book.listPrice.amount <= filterBy.toPrice);
       });
       return filteredBooks;
     },
