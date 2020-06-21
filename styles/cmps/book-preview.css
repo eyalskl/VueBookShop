@@ -1,6 +1,7 @@
 .book-preview {
     background-color: rgba(49, 45, 45, 0.767);
     width: 20%;
+    height: 325px;
     min-width: 200px;
     padding: 1rem;
     margin: 1rem;
@@ -31,6 +32,6 @@
 
 @media (max-width: 470px) {
     .book-preview {
-        width: 70%;
+        width: 65%;
     }
 }
