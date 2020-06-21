@@ -2,6 +2,7 @@
 
 import './text-wrapper.cpm.js';
 
+
 Vue.component("book-details", {
   props: ["book"],
   template: `
@@ -59,3 +60,4 @@ Vue.component("book-details", {
     },
   },
 });
+
