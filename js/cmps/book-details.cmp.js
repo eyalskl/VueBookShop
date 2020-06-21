@@ -51,7 +51,7 @@ Vue.component("book-details", {
       else  return '';
     },
     onSaleImgUrl() {
-        if (this.book.listPrice.isOnSale) return `../../imgs/sale.png`;
+        if (this.book.listPrice.isOnSale) return `../imgs/sale.png`;
         else return '';
     },
     pageCountText() {

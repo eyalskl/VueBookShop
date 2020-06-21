@@ -31,6 +31,10 @@ body {
     cursor: default;
 }
 
+.main-header h1 span {
+    color: white;
+}
+
 button {
     cursor: pointer;
     outline: none;
