@@ -13,8 +13,8 @@ Vue.component('book-filter', {
         return {
             filterBy: {
                 byName: '',
-                fromPrice: -Infinity,
-                toPrice: Infinity
+                fromPrice: 0,
+                toPrice: 9999
             }
         }
     },

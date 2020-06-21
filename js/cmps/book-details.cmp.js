@@ -8,14 +8,14 @@ Vue.component("book-details", {
     <div class="book-details">
         <div> <h2> {{ book.title }} </h2> 
             <span class="price" :class="priceTag"> {{ formattedPrice }} </span> 
-            <img class="sale" :src="onSale" /> 
+            <img class="sale" v-if="this.book.listPrice.isOnSale" :src="onSaleImgUrl" /> 
         </div>
         <div> 
             <span class="category" v-for="category in book.categories"> {{ category }} </span>
         </div>
         <img class="thumbnail" :src="book.thumbnail" />
         <p v-for="author in book.authors"> by {{ author }} </p>
-        <p>Published at: {{ book.publishedDate }} {{ publishText }} </p>
+        <p> Published at: {{ book.publishedDate }} {{ publishText }} </p>
         <h5> {{ book.subtitle }} </h5>
         <text-wrapper :desc="book.description" />
         <p> Page Count: {{book.pageCount}} {{ pageCountText }} </p>
@@ -49,8 +49,8 @@ Vue.component("book-details", {
       else if (price < 20) return 'cheap';
       else  return '';
     },
-    onSale() {
-        if (this.book.listPrice.isOnSale) return `../imgs/sale.png`;
+    onSaleImgUrl() {
+        if (this.book.listPrice.isOnSale) return `../../imgs/sale.png`;
         else return '';
     },
     pageCountText() {
