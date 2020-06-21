@@ -1,7 +1,7 @@
 Vue.component("book-preview", {
   props: ["book"],
   template: `
-    <li class="book-preview">
+    <li class="book-preview flex column">
         <h4> {{ book.title }} - {{ formattedPrice }} </h4>
         <p v-for="author in book.authors">by {{author}} </p>
         <img :src="book.thumbnail" />
