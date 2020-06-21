@@ -1,0 +1,36 @@
+.book-preview {
+    background-color: rgba(49, 45, 45, 0.767);
+    width: 20%;
+    min-width: 200px;
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: 'Jura', sans-serif;
+    color: white;
+    transition: .6s;
+}
+
+.book-preview h4 {
+    text-transform: capitalize;
+    margin: 0;
+    padding: 0;
+}
+
+.book-preview p {
+    color: rgb(134, 134, 134);
+}
+
+.book-preview img {
+    height: 200px;
+}
+
+.book-preview:hover {
+    background-color: rgba(0, 0, 0, 0.829);
+}
+
+@media (max-width: 450px) {
+    .book-preview {
+        width: 70%;
+    }
+}

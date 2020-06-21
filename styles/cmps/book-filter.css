@@ -1,0 +1,41 @@
+.book-filter input {
+    width: 20%;
+    border-radius: 999px;
+    padding: 1rem;
+    font-family: 'Jura', sans-serif;
+    border: 1px solid rgb(0, 0, 0);
+    color: rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    font-weight: bold;
+    transition: .7s;
+}
+
+.book-filter input[type="number"] {
+    width: 125px;
+}
+
+.book-filter input::placeholder {
+    color: rgb(0, 0, 0);
+}
+
+
+
+.book-filter {
+    margin-bottom: 1rem;
+}
+
+.book-filter button {
+    border-radius: 999px;
+    padding: 1rem;
+    font-family: 'Jura', sans-serif;
+    border: 1px solid black;
+    color: #fff;
+    background-color: rgb(49, 49, 49);
+    font-weight: bold;
+    transition: .7s;
+    margin-inline-start: .5rem;
+}
+
+.book-filter button:hover {
+    background-color: rgb(37, 37, 37);
+}

@@ -1,0 +1,7 @@
+.app-header {
+    height: 80px;
+}
+
+.app-main {
+    min-height: calc(100vh - 80px);
+}

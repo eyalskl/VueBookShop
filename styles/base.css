@@ -1,0 +1,45 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: rgb(132, 144, 255);
+    background: url('../imgs/bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+    text-align: center;
+    font-family: sans-serif;
+    font-family: 'Jura', sans-serif;
+}
+
+
+.main-header {
+    background-color: rgb(49, 45, 45);
+    border-bottom: 3px solid #000;
+    border-radius: 200px;
+    margin: 1rem auto;
+    width: 50%;
+    min-width: 400px;
+}
+
+.main-header h1 {
+    font-family: 'Snippet', sans-serif;
+    letter-spacing: 5px;
+    font-size: 3rem;
+    color: rgb(132, 144, 255);
+    text-shadow: 3px 3px 3px rgb(128, 128, 128);
+    cursor: default;
+}
+
+button {
+    cursor: pointer;
+    outline: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+input {
+    outline: none;
+}

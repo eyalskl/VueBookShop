@@ -1,0 +1,81 @@
+.book-details {
+  background-color: rgba(252, 252, 252, 0.63);
+  padding: 1rem;
+  width: 30%;
+  min-width: 400px;
+  margin: 0 auto;
+  border-radius: 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  font-family: "Jura", sans-serif;
+}
+
+.book-details button.close {
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: rgb(49, 45, 45);
+  color: white;
+  font-family: "Jura", sans-serif;
+  text-transform: uppercase;
+  font-weight: 700;
+  border: 1px solid black;
+  transition: 0.3s;
+}
+
+.book-details button:hover {
+  background-color: rgb(29, 28, 28);
+}
+
+.book-details h2 {
+  display: inline-block;
+  text-transform: capitalize;
+  margin: 0;
+  font-size: 2rem;
+}
+
+.book-details img.thumbnail {
+  width: 40%;
+  align-self: center;
+  margin-top: 1rem;
+}
+
+.book-details span.category {
+  background-color: #6c757d;
+  color: white;
+  display: inline-block;
+  padding: 0.25em 0.4em;
+  font-size: 0.8rem;
+  font-weight: 700;
+  border-radius: 0.25rem;
+  margin: 2.5px;
+  margin-top: 5px;
+  cursor: default;
+}
+
+
+
+.book-details p {
+  margin: 0;
+  padding: 0;
+  margin-top: 5px;
+}
+
+.sale {
+  height: 75px;
+  margin: 0;
+  padding: 0;
+}
+
+.price {
+  font-size: 1.25rem;
+}
+
+.expensive {
+  color: red;
+}
+
+.cheap {
+  color: rgb(0, 156, 0);
+}
