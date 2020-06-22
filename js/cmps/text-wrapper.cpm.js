@@ -1,6 +1,6 @@
 'use strict';
 
-Vue.component('text-wrapper', {
+export default {
     props: ['desc'],
     template: `
     <div class="book-desc"> 
@@ -31,4 +31,4 @@ Vue.component('text-wrapper', {
             return (this.desc.length > 100)
         }
     }
-})
+}

@@ -1,6 +1,6 @@
 "use strict";
 
-import "./cmps/book-app.cmp.js";
+import bookApp from "./cmps/book-app.cmp.js";
 
 new Vue({
   el: "#App",
@@ -12,4 +12,7 @@ new Vue({
         <book-app> </book-app>
     </div>
     `,
+    components: {
+        bookApp
+    }
 });

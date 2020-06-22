@@ -1,12 +1,12 @@
 "use strict";
 
-import "./book-list.cmp.js";
-import "./book-filter.cmp.js";
-import "./book-details.cmp.js";
+import bookList from "./book-list.cmp.js";
+import bookFilter from "./book-filter.cmp.js";
+import bookDetails from "./book-details.cmp.js";
 
 import { BookService } from "../services/book.service.js";
 
-Vue.component("book-app", {
+export default {
   template: `
     <main class="app-main book-app">
         <book-filter v-show="!selectedBook" @filtered="setFilter" /> 
@@ -20,6 +20,11 @@ Vue.component("book-app", {
       filterBy: null,
       selectedBook: null,
     };
+  },
+  components: {
+    bookFilter,
+    bookDetails,
+    bookList
   },
   computed: {
     booksToShow() {
@@ -45,4 +50,4 @@ Vue.component("book-app", {
   created() {
     this.books = BookService.getBooks();
   },
-});
+};

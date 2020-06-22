@@ -1,9 +1,8 @@
 "use strict";
 
-import './text-wrapper.cpm.js';
+import textWrapper from "./text-wrapper.cpm.js";
 
-
-Vue.component("book-details", {
+export default {
   props: ["book"],
   template: `
     <div class="book-details">
@@ -23,6 +22,9 @@ Vue.component("book-details", {
         <button class='close' @click="close"> Go back </button>
     </div>
     `,
+  components: {
+    textWrapper,
+  },
   methods: {
     close() {
       this.$emit("close", null);
@@ -46,18 +48,23 @@ Vue.component("book-details", {
     },
     priceTag() {
       const price = this.book.listPrice.amount;
-      if (price > 150) return 'expensive';
-      else if (price < 20) return 'cheap';
-      else  return '';
+      if (price > 150) return "expensive";
+      else if (price < 20) return "cheap";
+      else return "";
     },
     onSaleImgUrl() {
-        if (this.book.listPrice.isOnSale) return `imgs/sale.png`;
-        else return '';
+      if (this.book.listPrice.isOnSale) return `imgs/sale.png`;
+      else return "";
     },
     pageCountText() {
-        const pages = this.book.pageCount;
-        return (pages > 500) ? '(Long Reading)' : (pages > 200) ? '(Decent Reading)' : (pages < 100) ? '(Light Reading)' : '';
+      const pages = this.book.pageCount;
+      return pages > 500
+        ? "(Long Reading)"
+        : pages > 200
+        ? "(Decent Reading)"
+        : pages < 100
+        ? "(Light Reading)"
+        : "";
     },
   },
-});
-
+};

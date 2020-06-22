@@ -1,6 +1,6 @@
 'use strict';
 
-Vue.component('book-filter', {
+export default {
     template: `
         <section class="book-filter">
             <input type="text" placeholder="Search something..." v-model="filterBy.byName" @input="filter"/>
@@ -31,4 +31,4 @@ Vue.component('book-filter', {
             this.$emit('filtered', this.filterBy);
         }
     }
-})
+}

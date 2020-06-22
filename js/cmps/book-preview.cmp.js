@@ -1,4 +1,4 @@
-Vue.component("book-preview", {
+export default {
   props: ["book"],
   template: `
     <li class="book-preview flex column">
@@ -16,4 +16,4 @@ Vue.component("book-preview", {
       }).format(price)
     },
   },
-});
+}
