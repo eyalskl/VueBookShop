@@ -17,7 +17,9 @@ export default {
     },
     watch: {
         msgData(newValue) {
-          if (newValue) setTimeout(this.toggleShow, this.msgData.showFor);
+          if (newValue) setTimeout(() => {
+            this.msgData.isVisible = false
+          }, this.msgData.showFor);
         }
     },
     computed: {

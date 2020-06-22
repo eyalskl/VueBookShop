@@ -6,6 +6,7 @@ import { utilsService } from '../services/utils.service.js';
 
 const gBooks = createBooks();
 
+
 export const bookService = {
   getBooks,
   getById,
@@ -16,7 +17,7 @@ export const bookService = {
 function createBooks() {
   const books = utilsService.loadFromStorage(KEY);
   if (books) return books
-  return [
+  const defaultBooks = [
     {
       id: "OXeMG8wNskc",
       title: "metus hendrerit",
@@ -384,6 +385,8 @@ function createBooks() {
       },
     },
   ];
+  utilsService.storeToStorage(KEY, defaultBooks);
+  return defaultBooks;
 }
 
 function getBooks() {

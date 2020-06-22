@@ -23,7 +23,7 @@ export default {
             <button class="add-btn" @click="toggleAddReviewMode"> {{(this.addReviewMode) ? 'Cancel' : 'Write a new review'}} </button>
             <transition name="fade">
             <form v-if="addReviewMode" @submit.prevent="saveReview" class="form-review flex column">
-                <label> Full Name: <input ref="input" id="fullName" v-model="reviewToEdit.fullName" type="text" placeholder="Your name..."> </input></label>
+                <label> Full Name: <input id="fullName" v-model="reviewToEdit.fullName" type="text" placeholder="Your name..."> </label>
                 <label class="flex"> Rating <star-rating @onStarSelection="setRate" /> </label>
                 <label> Read At: <input type="date" v-model="reviewToEdit.readAt"></label>
                 <label> <textarea v-model="reviewToEdit.freeText" cols="40" rows="5" placeholder="Tell us more..."> </textarea> </label>
@@ -81,7 +81,8 @@ export default {
         },
         setRate(stars) {
             this.reviewToEdit.stars = stars
-        }
+        },
+
     },
     computed: {
         currDate() {
