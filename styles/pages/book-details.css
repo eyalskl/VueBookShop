@@ -1,9 +1,10 @@
 .book-details {
   background-color: rgba(252, 252, 252, 0.83);
   padding: 1rem;
-  width: 30%;
+  width: 50%;
   min-width: 350px;
   margin: 0 auto;
+  margin-bottom: 1rem;
   border-radius: 10px;
   text-align: center;
   display: flex;
@@ -23,6 +24,7 @@
   border: 1px solid black;
   transition: 0.3s;
 }
+
 
 .book-details button:hover {
   background-color: rgb(29, 28, 28);

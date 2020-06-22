@@ -1,10 +1,11 @@
 'use strict';
 
-export const Utils = {
+export const utilsService = {
     storeToStorage,
     loadFromStorage,
     getRandomInt,
-    getRandomId
+    getRandomId,
+    formatCurrency
 }
 
 function storeToStorage(key, value) {
@@ -27,4 +28,11 @@ function getRandomInt(num1, num2) {
     var max = (num1 >= num2)? num1+1 : num2+1;
     var min = (num1 <= num2)? num1 : num2;
     return (Math.floor(Math.random()*(max - min)) + min);
+}
+
+function formatCurrency(lang, currency, price) {
+    return new Intl.NumberFormat(lang, {
+        style: 'currency',
+        currency: currency,
+      }).format(price);
 }

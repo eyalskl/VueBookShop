@@ -1,0 +1,57 @@
+.about-us {
+    background-color: #fff;
+    height: calc(100vh - 160px);
+    margin-top: -1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.about-us img {
+    height: 200px;
+    margin-bottom: 5rem;
+}
+
+.about-us h2 {
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    font-size: 5rem;
+    cursor: default;
+    text-shadow: 2px 2px 4px rgb(49,49,49);
+}
+
+.about-us a {
+    text-decoration: underline;
+    color: rgb(117, 117, 255);
+
+}
+
+.about-us pre {
+    font-family: 'Jura', sans-serif;
+}
+
+.fade-enter-active, .fade-leave-active {
+    transition: opacity 2.5s;
+  }
+  .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+    opacity: 0;
+  }
+
+  .bounce-enter-active {
+    animation: bounce-in 1.5s;
+  }
+  .bounce-leave-active {
+    animation: bounce-in 1.5s reverse;
+  }
+  @keyframes bounce-in {
+    0% {
+      transform: scale(0);
+    }
+    50% {
+      transform: scale(1.5);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }

@@ -1,11 +1,12 @@
 "use strict";
-
-import textWrapper from "./text-wrapper.cpm.js";
+import { utilsService } from '../services/utils.service.js';
+import { bookService } from '../services/book.service.js';
+import textWrapper from '../cmps/text-wrapper.cpm.js';
+import reviewAdd from '../cmps/review-add.cmp.js';
 
 export default {
-  props: ["book"],
   template: `
-    <div class="book-details">
+    <div class="book-details" v-if="book">
         <div> <h2> {{ book.title }} </h2> 
             <span class="price" :class="priceTag"> {{ formattedPrice }} </span> 
             <img class="sale" v-if="this.book.listPrice.isOnSale" :src="onSaleImgUrl" /> 
@@ -19,15 +20,22 @@ export default {
         <h5> {{ book.subtitle }} </h5>
         <text-wrapper :desc="book.description" />
         <p> Page Count: {{book.pageCount}} {{ pageCountText }} </p>
+        <review-add> </review-add>
         <button class='close' @click="close"> Go back </button>
     </div>
     `,
+  data() {
+    return {
+      book: null
+    }
+  },
   components: {
     textWrapper,
+    reviewAdd
   },
   methods: {
     close() {
-      this.$emit("close", null);
+      this.$router.push('/book')
     },
   },
   computed: {
@@ -41,10 +49,7 @@ export default {
     formattedPrice() {
       const currencyCode = this.book.listPrice.currencyCode;
       const price = this.book.listPrice.amount;
-      return new Intl.NumberFormat(this.book.language, {
-        style: "currency",
-        currency: currencyCode,
-      }).format(price);
+      return utilsService.formatCurrency(this.book.language, currencyCode, price);
     },
     priceTag() {
       const price = this.book.listPrice.amount;
@@ -67,4 +72,11 @@ export default {
         : "";
     },
   },
+  created() {
+    const {bookId} = this.$route.params;
+    bookService.getById(bookId)
+        .then(book => {
+            this.book = book;
+        })
+  }
 };

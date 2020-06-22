@@ -1,12 +1,21 @@
-"use strict";
+'use strict';
 
-var gBooks = createBooks();
+const KEY = 'books';
 
-export const BookService = {
+import { utilsService } from '../services/utils.service.js';
+
+const gBooks = createBooks();
+
+export const bookService = {
   getBooks,
+  getById,
+  addReview,
+  removeReview
 };
 
 function createBooks() {
+  const books = utilsService.loadFromStorage(KEY);
+  if (books) return books
   return [
     {
       id: "OXeMG8wNskc",
@@ -378,5 +387,23 @@ function createBooks() {
 }
 
 function getBooks() {
-  return gBooks;
+  return Promise.resolve(gBooks);
+}
+
+function getById(bookId) {
+  return Promise.resolve(gBooks.find((book) => book.id === bookId));
+}
+
+
+function addReview(bookId, review) {
+  let currBook = gBooks.find((book) => book.id === bookId)
+   if (!currBook.reviews) currBook.reviews = [];
+   currBook.reviews.unshift(review);
+   utilsService.storeToStorage(KEY, gBooks);
+}
+
+function removeReview(bookId, reviewIdx) {
+  let currBook = gBooks.find((book) => book.id === bookId);
+  currBook.reviews.splice(reviewIdx, 1);
+  utilsService.storeToStorage(KEY, gBooks);
 }

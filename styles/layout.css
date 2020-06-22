@@ -3,5 +3,9 @@
 }
 
 .app-main {
-    min-height: calc(100vh - 80px);
+    min-height: calc(100vh - 160px - 1rem);
+}
+
+.main-footer {
+    height: 80px;
 }
