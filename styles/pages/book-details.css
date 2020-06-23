@@ -1,3 +1,24 @@
+.book-details-container {
+  padding: 0 2rem;
+}
+
+.book-details-container a {
+  align-self: center;
+  background-color: rgb(49, 45, 45);
+  color: white;
+  padding: 1rem;
+  font-size: 1rem;
+  font-weight: 700;
+  border: 1px solid black;
+  border-radius: 15px;
+  text-transform: uppercase;
+  transition: .3s;
+}
+
+.book-details-container a:hover {
+  background-color: rgb(29,29,29);
+}
+
 .book-details {
   background-color: rgba(252, 252, 252, 0.83);
   padding: 1rem;
@@ -38,9 +59,10 @@
 }
 
 .book-details img.thumbnail {
-  width: 40%;
+  width: 50%;
   align-self: center;
   margin-top: 1rem;
+  border: 1px solid black;
 }
 
 .book-details span.category {

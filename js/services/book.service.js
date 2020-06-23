@@ -11,7 +11,9 @@ export const bookService = {
   getBooks,
   getById,
   addReview,
-  removeReview
+  removeReview,
+  getNextBookId,
+  getPrevBookId
 };
 
 function createBooks() {
@@ -396,6 +398,19 @@ function getBooks() {
 
 function getById(bookId) {
   return Promise.resolve(gBooks.find((book) => book.id === bookId));
+}
+
+function getNextBookId(bookId) {
+  let idx = gBooks.findIndex(book => book.id === bookId);
+  if (idx === gBooks.length - 1) idx = 0
+  else idx = idx + 1;
+  return Promise.resolve(gBooks[idx].id);
+}
+function getPrevBookId(bookId) {
+  let idx = gBooks.findIndex(book => book.id === bookId);
+  if (idx === 0) idx = gBooks.length - 1
+  else idx = idx - 1;
+  return Promise.resolve(gBooks[idx].id);
 }
 
 

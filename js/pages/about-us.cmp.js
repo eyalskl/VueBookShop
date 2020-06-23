@@ -2,6 +2,11 @@
 export default {
     template: `
         <section class="about-us">
+            <nav>
+                <router-link to="team">Our Team</router-link>
+                <router-link to="service">Our Services</router-link> 
+            </nav>
+            <router-view />
             <transition name="bounce">
                 <h2 v-if="show">About Us!</h2>
             </transition>

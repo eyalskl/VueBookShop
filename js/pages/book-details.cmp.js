@@ -6,6 +6,8 @@ import reviewAdd from '../cmps/review-add.cmp.js';
 
 export default {
   template: `
+  <section class="flex book-details-container">
+    <router-link :to="'/book/' + prevBookId"><i class="fas fa-long-arrow-alt-left"></i> Previous Book </router-link>
     <div class="book-details" v-if="book">
         <div> <h2> {{ book.title }} </h2> 
             <span class="price" :class="priceTag"> {{ formattedPrice }} </span> 
@@ -20,13 +22,17 @@ export default {
         <h5> {{ book.subtitle }} </h5>
         <text-wrapper :desc="book.description" />
         <p> Page Count: {{book.pageCount}} {{ pageCountText }} </p>
-        <review-add> </review-add>
+        <review-add :book="book"> </review-add>
         <button class='close' @click="close"> Go back </button>
-    </div>
+     </div>
+    <router-link :to="'/book/' + nextBookId"> Next Book <i class="fas fa-long-arrow-alt-right"></i> </router-link>
+    </section>
     `,
   data() {
     return {
-      book: null
+      book: null,
+      nextBookId: null,
+      prevBookId: null
     }
   },
   components: {
@@ -37,6 +43,17 @@ export default {
     close() {
       this.$router.push('/book')
     },
+    loadBook() {
+      const { bookId } = this.$route.params;
+      bookService.getById(bookId)
+          .then(book => {
+              this.book = book;
+              bookService.getNextBookId(this.book.id)
+                .then(nextBookId => this.nextBookId = nextBookId)
+              bookService.getPrevBookId(book.id)
+                .then(prevBookId => this.prevBookId = prevBookId)
+          })
+  }
   },
   computed: {
     publishText() {
@@ -77,6 +94,15 @@ export default {
     bookService.getById(bookId)
         .then(book => {
             this.book = book;
+            bookService.getNextBookId(book.id)
+              .then(nextBookId => this.nextBookId = nextBookId)
+            bookService.getPrevBookId(book.id)
+              .then(prevBookId => this.prevBookId = prevBookId)
         })
-  }
+  },
+  watch: {
+    '$route.params.bookId'() {
+        this.loadBook();
+    }
+}
 };

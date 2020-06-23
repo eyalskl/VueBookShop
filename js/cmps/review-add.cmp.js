@@ -5,11 +5,12 @@ import {eventBus} from '../services/event-bus.service.js';
 
 
 export default {
+    props: ['book'],
     template: `
         <section class="review-add" v-if="book">
             <div class="reviews">
                 <ul class="clean-list">
-                    <h3> <i class="fas fa-comment-dots"></i> Reviews </h3>
+                    <h3> <i class="fas fa-comment-dots"></i> {{(hasReviews) ? 'Reviews' : 'No Reviews' }}</h3>
                     <li v-for="(review, idx) in book.reviews">
                         <button @click="deleteReview(idx)" title="Delete Review!">
                             <i class="fas fa-trash-alt"></i>
@@ -39,7 +40,6 @@ export default {
                 freeText: ''
             },
             addReviewMode: false,
-            book: null
         }
     },
     methods: {
@@ -73,10 +73,6 @@ export default {
 
             this.addReviewMode = !this.addReviewMode;
         },
-        getCurrBook() {
-            bookService.getById(this.bookId)
-                .then(book => this.book = book)
-        },
         setRate(stars) {
             this.reviewToEdit.stars = stars
         },
@@ -93,18 +89,17 @@ export default {
             return this.$route.params.bookId
         },
         hasReviews() {
-            return (this.book.reviews && this.book.reviews.length > 0)
+            return this.book.reviews.length > 0
         }
-
     },
     mounted() {
         if (this.addReviewMode) this.$refs.input.focus()
     },
     created() {
         this.reviewToEdit.readAt = this.currDate
-        this.getCurrBook();
     },
     components: {
         starRating
-    }
+    },
+
 }
