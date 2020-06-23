@@ -10,6 +10,7 @@ export default {
             <div class="main-nav flex">
                 <router-link to="/"> Home </router-link>
                 <router-link to="/book"> Books </router-link>
+                <router-link to="/add-book"> Add Book </router-link>
                 <router-link to="/about"> About </router-link>
             </div>
         </nav>

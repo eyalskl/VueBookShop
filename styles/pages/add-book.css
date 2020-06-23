@@ -1,0 +1,78 @@
+.add-book input {
+    width: 50%;
+    min-width: 400px;
+    border-radius: 999px;
+    padding: 1rem;
+    font-family: 'Jura', sans-serif;
+    border: 1px solid rgb(0, 0, 0);
+    color: rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    font-weight: bold;
+    transition: .7s;
+}
+
+
+.add-book input::placeholder {
+    color: rgb(0, 0, 0);
+    text-transform: capitalize;
+}
+
+.add-book button.search-book {
+    border-radius: 999px;
+    padding: 1rem;
+    font-family: 'Jura', sans-serif;
+    border: 1px solid black;
+    color: #fff;
+    background-color: rgb(49, 49, 49);
+    font-weight: bold;
+    transition: .7s;
+    margin-inline-start: .5rem;
+}
+
+.add-book li {
+    background-color: rgba(49, 45, 45, 0.9);
+    width: 25%;
+    height: 175px;
+    max-width: 250px;
+    min-width: 200px;
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: 'Jura', sans-serif;
+    color: white;
+    transition: .6s;  
+    justify-content: space-between;
+}
+
+.add-book li button {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1rem;
+    background-color: #fff;
+    border: none;
+    border-radius: 999px;
+}
+
+.add-book li h4 {
+    text-transform: capitalize;
+    height: 2rem;
+    font-size: .9rem;
+    margin: 0;
+    padding: 0;
+}
+
+.add-book li p {
+    color: rgb(134, 134, 134);
+    font-size: .85rem;
+}
+/* 
+.book-preview img {
+    height: 225px;
+    align-self: center;
+    justify-self: flex-end;
+} */
+
+.add-book li:hover {
+    background-color: rgba(0, 0, 0, 0.829);
+}

@@ -1,7 +1,8 @@
 .book-preview {
     background-color: rgba(49, 45, 45, 0.9);
-    width: 13%;
+    width: 25%;
     height: 350px;
+    max-width: 250px;
     min-width: 200px;
     padding: 1rem;
     margin: 1rem;
@@ -15,16 +16,19 @@
 .book-preview h4 {
     text-transform: capitalize;
     height: 2rem;
+    font-size: .9rem;
     margin: 0;
     padding: 0;
 }
 
 .book-preview p {
     color: rgb(134, 134, 134);
+    font-size: .85rem;
 }
 
 .book-preview img {
     height: 225px;
+    width: 175PX;
     align-self: center;
     justify-self: flex-end;
 }

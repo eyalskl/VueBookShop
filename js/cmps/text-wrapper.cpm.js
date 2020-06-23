@@ -28,6 +28,7 @@ export default {
             return this.desc.slice(0,100) + '...';
         },
         isLongText() {
+            if (!this.desc) return false
             return (this.desc.length > 100)
         }
     }

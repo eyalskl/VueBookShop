@@ -14,6 +14,7 @@
 /* PAGES */
 
 @import './pages/book-details.css';
+@import './pages/add-book.css';
 @import './pages/home-page.css';
 @import './pages/about-us.css';
 

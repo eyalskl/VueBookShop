@@ -13,8 +13,14 @@ export const bookService = {
   addReview,
   removeReview,
   getNextBookId,
-  getPrevBookId
+  getPrevBookId,
+  getBooksFromAPI,
+  addGoogleBook,
+  searchBooksFromAPI
 };
+
+// getBooksFromAPI()
+//   .then(books => console.log(books))
 
 function createBooks() {
   const books = utilsService.loadFromStorage(KEY);
@@ -394,6 +400,46 @@ function createBooks() {
 function getBooks() {
   gBooks = utilsService.loadFromStorage(KEY)
   return Promise.resolve(gBooks);
+}
+
+function getBooksFromAPI() {
+  // if (gBooks) return gBooks;
+  return axios.get('https://www.googleapis.com/books/v1/volumes?printType=books&q=effective%20javascript')
+      .then(books => {
+          // gBooks = books.data.results
+          // saveToStorage(KEY, gbooks);
+          return books.data.items;
+      })
+}
+
+function searchBooksFromAPI(search) {
+  return axios.get(`https://www.googleapis.com/books/v1/volumes?q=${search}`)
+    .then(books => books.data.items)
+}
+
+function addGoogleBook(googleBook) {
+   const convertedBook = {
+      id: googleBook.id,
+      title: googleBook.volumeInfo.title,
+      subtitle: googleBook.volumeInfo.subtitle,
+      authors: googleBook.volumeInfo.authors,
+      publishedDate: googleBook.volumeInfo.publishedDate,
+      description: googleBook.volumeInfo.description,
+      pageCount: googleBook.volumeInfo.pageCount,
+      categories: googleBook.volumeInfo.categories,
+      thumbnail: '',
+      language: googleBook.volumeInfo.language,
+      listPrice: {
+        amount: utilsService.getRandomInt(50, 150),
+        currencyCode: 'ILS',
+        isOnSale: false,
+      },
+      reviews: [],
+  }
+  convertedBook.listPrice.isOnSale = (googleBook.saleInfo.saleability === "FOR_SALE") 
+  convertedBook.thumbnail = (googleBook.volumeInfo.imageLinks) ? googleBook.volumeInfo.imageLinks.thumbnail : '';
+  gBooks.unshift(convertedBook);
+  utilsService.storeToStorage(KEY, gBooks);
 }
 
 function getById(bookId) {
