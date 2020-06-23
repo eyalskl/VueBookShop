@@ -8,7 +8,7 @@ export default {
     template: `
         <section class="review-add" v-if="book">
             <div class="reviews">
-                <ul class="clean-list" v-if="hasReviews">
+                <ul class="clean-list">
                     <h3> <i class="fas fa-comment-dots"></i> Reviews </h3>
                     <li v-for="(review, idx) in book.reviews">
                         <button @click="deleteReview(idx)" title="Delete Review!">
@@ -21,7 +21,6 @@ export default {
                 </ul>
             </div>
             <button class="add-btn" @click="toggleAddReviewMode"> {{(this.addReviewMode) ? 'Cancel' : 'Write a new review'}} </button>
-            <transition name="fade">
             <form v-if="addReviewMode" @submit.prevent="saveReview" class="form-review flex column">
                 <label> Full Name: <input id="fullName" v-model="reviewToEdit.fullName" type="text" placeholder="Your name..."> </label>
                 <label class="flex"> Rating <star-rating @onStarSelection="setRate" /> </label>
@@ -29,7 +28,6 @@ export default {
                 <label> <textarea v-model="reviewToEdit.freeText" cols="40" rows="5" placeholder="Tell us more..."> </textarea> </label>
                 <button :disabled="!isValid">Submit Review</button>
             </form>
-            </transition>
         </section>
     `,
     data() {

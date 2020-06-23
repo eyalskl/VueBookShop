@@ -4,7 +4,7 @@ const KEY = 'books';
 
 import { utilsService } from '../services/utils.service.js';
 
-const gBooks = createBooks();
+var gBooks = createBooks();
 
 
 export const bookService = {
@@ -390,6 +390,7 @@ function createBooks() {
 }
 
 function getBooks() {
+  gBooks = utilsService.loadFromStorage(KEY)
   return Promise.resolve(gBooks);
 }
 
