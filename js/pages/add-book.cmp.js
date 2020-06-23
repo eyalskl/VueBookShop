@@ -7,7 +7,7 @@ export default {
     name: 'add-books',
     template: `
         <main class="main-app add-book">
-            <input ref="searchInput" type="text" placeholder="Search for a book online...">
+            <input ref="searchInput" @keyup.enter="searchBooks" type="text" placeholder="Search for a book online...">
             <button class="search-book" @click="searchBooks"> Search </button>
             <section>
                 <ul class="clean-list flex wrap justify-center">
