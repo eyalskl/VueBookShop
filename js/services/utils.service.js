@@ -30,9 +30,9 @@ function getRandomInt(num1, num2) {
     return (Math.floor(Math.random()*(max - min)) + min);
 }
 
-function formatCurrency(lang, currency, price) {
+function formatCurrency(lang, currencyCode, price) {
     return new Intl.NumberFormat(lang, {
         style: 'currency',
-        currency: currency,
+        currency: currencyCode,
       }).format(price);
 }

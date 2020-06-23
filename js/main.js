@@ -41,7 +41,6 @@ new Vue({
     },
     created() {
         eventBus.$on('show-msg', (data) => {
-            console.log('data:', data)
             this.userMsgData = data;
         });
     },
